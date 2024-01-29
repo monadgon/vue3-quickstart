@@ -3,21 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@3.5.1/dist/vuetify.min.css" rel="stylesheet">
     <title>01-01</title>
+    <style> *{ text-transform: none !important; } </style> <!-- v-btn의 글씨가 uppercase로 된다. -->
   </head>
   <body>
     <div id="app">
-      <h2>{{message}}</h2>
+      <v-app>
+        <h2>{{message}}</h2>
+        <h3>{{myMessage}}</h3>
+        <v-card>
+          <v-row>
+            <v-col align-self="center">
+              <v-btn prepend-icon="$vuetify" color="success" @click="increment">increment: {{count}}</v-btn>
+            </v-col>
+            <v-col>
+              <v-btn prepend-icon="$vuetify" stacked @click="decrement">
+                <template v-slot:prepend>
+                  <v-icon color="success"></v-icon>
+                </template>
+                decrement: {{count}}
+              </v-btn>
+            </v-col>
+          </v-row>
+        </v-card>
+      </v-app>
     </div>
+
     <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vuetify@3.5.1/dist/vuetify.min.js"></script>
+
     <script type="text/javascript">
+      const vuetify = Vuetify.createVuetify();
+
       var model = { message: "Hello Vue3!" };
       var vm = Vue.createApp({
         name: "App",
         data() {
-          return model;
+          return {
+            myMessage: "hello, this is starseed",
+            count: 0,
+            message: model.message
+          }
         },
-      }).mount("#app");
+        methods: {
+          increment(){
+            this.count++;
+          },
+          decrement(){
+            this.count--;
+          }
+        },
+        mounted() {
+          console.log(`숫자 세기의 초기값은 ${this.count}입니다.`)
+        },
+      });//.mount("#app");
+      vm.use(vuetify).mount("#app");
+      /* https://vuetifyjs.com/en/getting-started/installation/#using-cdn */ 
     </script>
   </body>
 </html>
