@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@3.5.1/dist/vuetify.min.css" rel="stylesheet">
+    <title>03-16 v-table</title>
+</head>
+<body>
+    <div id="app">
+        <v-data-table :items="contacts"></v-data-table>
+    </div>
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vuetify@3.5.1/dist/vuetify.min.js"></script>
+    <script>
+        const vuetify = Vuetify.createVuetify();
+        let model = {
+            contacts: [
+            { no: 1011, name: "RM", tel: "010-3456-8299" },
+            { no: 1012, name: "정국", tel: "010-3456-8298" },
+            { no: 1013, name: "제이홉", tel: "010-3456-8297" },
+            { no: 1014, name: "슈가", tel: "010-3456-8296" },
+            { no: 1011, name: "RM", tel: "010-3456-8299" },
+            { no: 1012, name: "정국", tel: "010-3456-8298" },
+            { no: 1013, name: "제이홉", tel: "010-3456-8297" },
+            { no: 1014, name: "슈가", tel: "010-3456-8296" },
+            { no: 1011, name: "RM", tel: "010-3456-8299" },
+            { no: 1012, name: "정국", tel: "010-3456-8298" },
+            { no: 1013, name: "제이홉", tel: "010-3456-8297" },
+            { no: 1014, name: "슈가", tel: "010-3456-8296" },
+            { no: 1011, name: "RM", tel: "010-3456-8299" },
+            { no: 1012, name: "정국", tel: "010-3456-8298" },
+            { no: 1013, name: "제이홉", tel: "010-3456-8297" },
+            { no: 1014, name: "슈가", tel: "010-3456-8296" },
+            { no: 1011, name: "RM", tel: "010-3456-8299" },
+            { no: 1012, name: "정국", tel: "010-3456-8298" },
+            { no: 1013, name: "제이홉", tel: "010-3456-8297" },
+            { no: 1014, name: "슈가", tel: "010-3456-8296" },
+            { no: 1011, name: "RM", tel: "010-3456-8299" },
+            { no: 1012, name: "정국", tel: "010-3456-8298" },
+            { no: 1013, name: "제이홉", tel: "010-3456-8297" },
+            { no: 1014, name: "슈가", tel: "010-3456-8296" },
+            { no: 1011, name: "RM", tel: "010-3456-8299" },
+            { no: 1012, name: "정국", tel: "010-3456-8298" },
+            { no: 1013, name: "제이홉", tel: "010-3456-8297" },
+            { no: 1014, name: "슈가", tel: "010-3456-8296" },
+            ],
+        };
+        let vm = Vue.createApp({
+            name : "App",
+            data(){
+                return model
+            }
+        })
+        vm.use(vuetify).mount("#app");
+    </script>
+</body>
+</html>
